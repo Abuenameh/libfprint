@@ -23,7 +23,7 @@ pkgver() {
 
 prepare() {
   cd $_pkgname
-  patch --forward --strip=1 --input="${srcdir}/elan.patch"
+  patch --forward --strip=1 --input="elan.patch"
 }
 
 build() {
