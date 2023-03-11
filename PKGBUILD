@@ -13,7 +13,7 @@ checkdepends=(python python-cairo python-gobject 'umockdev>=0.13.2')
 provides=("libfprint=$pkgver" libfprint-2.so)
 conflicts=(libfprint)
 groups=(fprint)
-source=("git+https://gitlab.freedesktop.org/0x00002a/libfprint/-/archive/sigfm/libfprint-sigfm.tar.bz2")
+source=("https://gitlab.freedesktop.org/0x00002a/libfprint/-/archive/sigfm/libfprint-sigfm.tar.bz2")
 sha256sums=('SKIP')
 
 pkgver() {
