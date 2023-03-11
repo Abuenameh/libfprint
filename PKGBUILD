@@ -7,7 +7,7 @@ pkgdesc="Library for fingerprint readers"
 url="https://fprint.freedesktop.org/"
 arch=(x86_64)
 license=(LGPL)
-depends=(libgusb pixman nss systemd-libs opencv4 doctest)
+depends=(libgusb pixman nss systemd-libs opencv doctest)
 makedepends=(git meson gtk-doc gobject-introspection systemd)
 checkdepends=(python python-cairo python-gobject 'umockdev>=0.13.2')
 provides=("libfprint=$pkgver" libfprint-2.so)
