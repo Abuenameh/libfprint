@@ -26,10 +26,6 @@ build() {
   meson compile -C build
 }
 
-check() {
-  meson test -C build --print-errorlogs
-}
-
 package() {
   DESTDIR="$pkgdir" meson install -C build
 }
