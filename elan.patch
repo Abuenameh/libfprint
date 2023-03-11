@@ -1,0 +1,19 @@
+--- a/libfprint/drivers/elan.c	2023-03-08 22:25:15.540577336 -0400
++++ b/libfprint/drivers/elan.c	2023-03-08 22:30:14.226667335 -0400
+@@ -998,13 +998,15 @@
+   dev_class->full_name = "ElanTech Fingerprint Sensor";
+   dev_class->type = FP_DEVICE_TYPE_USB;
+   dev_class->id_table = elan_id_table;
+-  dev_class->scan_type = FP_SCAN_TYPE_SWIPE;
++  dev_class->scan_type = FP_SCAN_TYPE_PRESS;
++  dev_class->nr_enroll_stages = 10;
+ 
+   img_class->img_open = dev_init;
+   img_class->img_close = dev_deinit;
+   img_class->activate = dev_activate;
+   img_class->deactivate = dev_deactivate;
+   img_class->change_state = dev_change_state;
++  img_class->algorithm = FPI_PRINT_SIGFM;
+ 
+   img_class->score_threshold = 24;
+ }
