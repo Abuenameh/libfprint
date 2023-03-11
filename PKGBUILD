@@ -13,17 +13,12 @@ checkdepends=(python python-cairo python-gobject 'umockdev>=0.13.2')
 provides=("libfprint=$pkgver" libfprint-2.so)
 conflicts=(libfprint)
 groups=(fprint)
-source=("https://gitlab.freedesktop.org/0x00002a/libfprint/-/archive/sigfm/libfprint-sigfm.tar.bz2")
-sha256sums=('SKIP')
-
-pkgver() {
-  cd $_pkgname
-  git describe --tags | sed 's/^V_\|^v//;s/_/./g;s/-/.r/;s/-/./'
-}
+source=("https://gitlab.freedesktop.org/0x00002a/libfprint/-/archive/sigfm/libfprint-sigfm.tar.bz2" "elan.patch")
+sha256sums=('SKIP' 'SKIP')
 
 prepare() {
   cd $_pkgname
-  patch --forward --strip=1 --input="elan.patch"
+  patch --forward --strip=1 --input="${srcdir}/elan.patch"
 }
 
 build() {
