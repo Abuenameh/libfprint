@@ -1,5 +1,14 @@
 --- a/libfprint/drivers/elan.c	2023-03-08 22:25:15.540577336 -0400
 +++ b/libfprint/drivers/elan.c	2023-03-08 22:30:14.226667335 -0400
+@@ -319,7 +319,7 @@
+   assembling_ctx.frame_width = self->frame_width;
+   assembling_ctx.frame_height = self->frame_height;
+   assembling_ctx.image_width = self->frame_width * 3 / 2;
+-  g_slist_foreach (raw_frames, (GFunc) self->process_frame, &frames);
++  self->process_frame(raw_frames->data, &frames);
+   fpi_do_movement_estimation (&assembling_ctx, frames);
+   img = fpi_assemble_frames (&assembling_ctx, frames);
+   img->flags |= FPI_IMAGE_PARTIAL;
 @@ -998,13 +998,15 @@
    dev_class->full_name = "ElanTech Fingerprint Sensor";
    dev_class->type = FP_DEVICE_TYPE_USB;
