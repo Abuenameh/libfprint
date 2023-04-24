@@ -13,7 +13,7 @@
    img_class->activate = dev_activate;
    img_class->deactivate = dev_deactivate;
    img_class->change_state = dev_change_state;
-+  img_class->algorithm = FPI_PRINT_SIGFM;
++  img_class->algorithm = FPI_DEVICE_ALGO_SIGFM;
  
    img_class->score_threshold = 24;
  }
